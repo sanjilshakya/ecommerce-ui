@@ -16,18 +16,21 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import * as components from './components';
+import * as services from './services';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    ProductsComponent,
-    ShoppingCartComponent,
-    CheckoutComponent,
-    OrdersSuccessComponent,
-    MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent
+    components.NavbarComponent,
+    components.HomeComponent,
+    components.ProductsComponent,
+    components.ShoppingCartComponent,
+    components.CheckoutComponent,
+    components.OrdersSuccessComponent,
+    components.MyOrdersComponent,
+    components.AdminProductsComponent,
+    components.AdminOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ]),
     NgbModule
   ],
-  providers: [],
+  providers: [
+    services.HttpService,
+    services.DataService,
+    services.AuthService,
+    services.OrdersService,
+    services.ProductsService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
