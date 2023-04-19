@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import * as components from './components';
 import * as services from './services';
+import * as guards from './guards';
 
 @NgModule({
   declarations: [
@@ -35,8 +36,12 @@ import * as services from './services';
     services.HttpService,
     services.DataService,
     services.AuthService,
-    services.OrdersService,
-    services.ProductsService,
+    services.UserService,
+    services.OrderService,
+    services.ProductService,
+    guards.AuthGuard,
+    guards.RoleGuard,
+    guards.LoginGuard,
   ],
   bootstrap: [AppComponent]
 })
