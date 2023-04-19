@@ -9,7 +9,7 @@ const API_BASE_URL = environment.apiURL;
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService extends HttpService {
+export class OrderService extends HttpService {
 
   constructor(http: HttpClient) {
     super(`${API_BASE_URL}${APICONSTANTS.ORDER}`, http)

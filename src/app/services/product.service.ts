@@ -9,9 +9,9 @@ const API_BASE_URL = environment.apiURL;
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService extends HttpService {
+export class ProductService extends HttpService {
 
   constructor(http: HttpClient) {
-    super(`${API_BASE_URL}${APICONSTANTS.AUTH}${APICONSTANTS.LOGIN}`, http)
+    super(`${API_BASE_URL}${APICONSTANTS.PRODUCT}`, http)
   }
 }
