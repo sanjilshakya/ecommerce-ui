@@ -4,4 +4,5 @@ export const APICONSTANTS = {
     USER: '/users',
     PRODUCT: '/products',
     ORDER: '/orders',
+    CATEGORY: '/category',
 }

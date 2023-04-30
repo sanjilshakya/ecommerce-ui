@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-6">
+        <form [formGroup]="productForm">
+            <div class="form-group mb-2">
+                <label for="title">Title *</label>
+                <input id="title" type="text" class="form-control" formControlName="title">
+                <div class="alert alert-danger mt-1" *ngIf="title?.touched && title?.invalid">
+                    Title is required</div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="description">Description *</label>
+                <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+                <div class="alert alert-danger mt-1" *ngIf="description?.touched && description?.invalid">
+                    Description is required
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="price">Price *</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input id="price" type="number" class="form-control" formControlName="price" [min]="0">
+                </div>
+                <div class="alert alert-danger mt-1"
+                    *ngIf="productForm.get('price')?.touched && productForm.get('price')?.invalid">
+                    <div *ngIf="price?.errors?.['required']">Price is required</div>
+                    <div *ngIf="price?.errors?.['min']">Price should be 0 or higher</div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="category">Category *</label>
+                <select id="category" class="form-control" formControlName="category">
+                    <option value=""></option>
+                    <option *ngFor="let cat of categories" value="{{cat._id}}">
+                        {{cat.name}}
+                    </option>
+                </select>
+                <div class="alert alert-danger mt-1" *ngIf="category?.touched && category?.invalid">
+                    Category is required</div>
+            </div>
+            <div class="form-group">
+                <label for="imageURL">Image URL *</label>
+                <input id="imageURL" class="form-control" formControlName="imageUrl">
+                <div class="alert alert-danger mt-1" *ngIf="imageUrl?.touched && imageUrl?.invalid">
+                    <div *ngIf="imageUrl?.errors?.['required']">Image URL is required</div>
+                    <div *ngIf="imageUrl?.errors?.['url']">Please enter a valid url</div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-2" (click)="save()">{{id !== 'new' ? 'Update':'Save'}}</button>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <img [src]="imageUrl?.value" class="card-img-top" >
+            <div class="card-body">
+                <h5 class="card-title">{{title?.value}}</h5>
+                <p class="card-text">{{price?.value | currency}}</p>
+            </div>
+        </div>
+    </div>
+</div>

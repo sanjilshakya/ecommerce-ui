@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomFormsModule } from 'ng2-validation'
 
 import * as components from './components';
 import * as services from './services';
 import * as guards from './guards';
+import * as interceptors from './interceptors';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import * as guards from './guards';
     components.OrdersSuccessComponent,
     components.MyOrdersComponent,
     components.AdminProductsComponent,
-    components.AdminOrdersComponent
+    components.AdminOrdersComponent,
+    components.ProductFormComponent,
+    components.CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import * as guards from './guards';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CustomFormsModule
   ],
   providers: [
     services.HttpService,
@@ -39,9 +44,15 @@ import * as guards from './guards';
     services.UserService,
     services.OrderService,
     services.ProductService,
+    services.CategoriesService,
     guards.AuthGuard,
     guards.RoleGuard,
     guards.LoginGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: interceptors.HeaderInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -7,10 +7,12 @@ const routes: Routes = [
   { path: "", component: components.HomeComponent },
   { path: "products", component: components.ProductsComponent },
   { path: "shopping-cart", component: components.ShoppingCartComponent },
+  { path: "categories", component: components.CategoriesComponent },
   { path: "check-out", component: components.CheckoutComponent, canActivate: [guards.AuthGuard] },
   { path: "order-success", component: components.OrdersSuccessComponent, canActivate: [guards.AuthGuard] },
   { path: "my-orders", component: components.MyOrdersComponent, canActivate: [guards.AuthGuard] },
   { path: "login", component: components.LoginComponent, canActivate: [guards.LoginGuard] },
+  { path: "admin/products/:id", component: components.ProductFormComponent, canActivate: [guards.AuthGuard, guards.RoleGuard] },
   { path: "admin/products", component: components.AdminProductsComponent, canActivate: [guards.AuthGuard, guards.RoleGuard] },
   { path: "admin/orders", component: components.AdminOrdersComponent, canActivate: [guards.AuthGuard, guards.RoleGuard] },
 ]
