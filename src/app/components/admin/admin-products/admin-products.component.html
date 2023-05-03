@@ -1,4 +1,5 @@
 <a routerLink="/admin/products/new" class="btn btn-primary">Add Product</a>
+<input type="text" class="form-control" placeholder="Search ..." #search (keyup)="searchProduct(search.value)">
 <table class="table">
     <thead>
         <tr>
@@ -8,10 +9,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of filteredProducts">
             <td>{{product?.title}}</td>
             <td>{{product?.price | currency}}</td>
-            <td><a [routerLink]="['/admin/products/', product?._id]">Edit</a></td>
+            <td>
+                <button class="btn btn-primary" [routerLink]="['/admin/products/', product?._id]">Edit</button>
+                <button class="btn btn-danger ms-2" (click)="deleteProduct(product._id)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

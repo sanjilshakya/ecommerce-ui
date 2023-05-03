@@ -37,7 +37,7 @@ export class ProductFormComponent implements OnInit {
       description: ['', Validators.required],
       price: ['', Validators.required],
       category: ['', Validators.required],
-      imageUrl: ['', [Validators.required]]
+      imageUrl: ['', Validators.required]
     })
   }
 
@@ -65,7 +65,9 @@ export class ProductFormComponent implements OnInit {
 
   save() {
     if (this.productForm.valid) {
-      const request = this.id !== 'new' ? this.productService.update(this.productForm.value) : this.productService.create(this.productForm.value)
+      const formData = this.productForm.value;
+      this.id === 'new' && delete formData._id
+      const request = this.id !== 'new' ? this.productService.update(formData) : this.productService.create(formData)
       request.subscribe({
         next: (res) => {
           console.log('success');
