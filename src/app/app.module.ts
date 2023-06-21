@@ -19,6 +19,7 @@ import * as interceptors from './interceptors';
     components.LoginComponent,
     components.HomeComponent,
     components.ProductsComponent,
+    components.ProductDetailsComponent,
     components.ShoppingCartComponent,
     components.CheckoutComponent,
     components.OrdersSuccessComponent,
@@ -26,7 +27,7 @@ import * as interceptors from './interceptors';
     components.AdminProductsComponent,
     components.AdminOrdersComponent,
     components.ProductFormComponent,
-    components.CategoriesComponent
+    components.CategoriesComponent,
   ],
   imports: [
     BrowserModule,

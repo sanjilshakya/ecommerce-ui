@@ -32,6 +32,7 @@ export class ProductsComponent implements OnInit {
       .subscribe({
         next: (products) => {
           this.products = products
+          this.filteredProducts = products
         },
         error: (err) => {
           console.log(err);

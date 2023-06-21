@@ -5,6 +5,7 @@ import * as guards from './guards';
 
 const routes: Routes = [
   { path: "", component: components.ProductsComponent },
+  { path: "products/:id", component: components.ProductDetailsComponent },
   { path: "products", component: components.ProductsComponent },
   { path: "shopping-cart", component: components.ShoppingCartComponent },
   { path: "categories", component: components.CategoriesComponent },
