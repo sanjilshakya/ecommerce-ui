@@ -1,8 +1,10 @@
-<div class="list-group">
-    <a class="list-group-item list-group-item-action" [class.active]="!categoryId" routerLink="/">All
-        Categories</a>
-    <a class="list-group-item list-group-item-action" [class.active]=" categoryId === c._id" routerLink="/"
-        [queryParams]="{categoryId: c._id}" *ngFor="let c of categories">
-        {{c?.name}}
-    </a>
+<div class="sticky-top">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" [class.active]="!categoryId" routerLink="/">All
+            Categories</a>
+        <a class="list-group-item list-group-item-action" [class.active]=" categoryId === c._id" routerLink="/"
+            [queryParams]="{categoryId: c._id}" *ngFor="let c of categories">
+            {{c?.name}}
+        </a>
+    </div>
 </div>

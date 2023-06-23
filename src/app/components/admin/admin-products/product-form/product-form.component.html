@@ -49,12 +49,6 @@
         </form>
     </div>
     <div class="col-6" *ngIf="id !=='new'">
-        <div class="card" style="width: 18rem;">
-            <img [src]="imageUrl?.value" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">{{title?.value}}</h5>
-                <p class="card-text">{{price?.value | currency}}</p>
-            </div>
-        </div>
+        <product-card [product]="productForm.value"></product-card>
     </div>
 </div>
