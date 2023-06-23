@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService, ProductService } from 'src/app/services';
 
 @Component({
-  selector: 'app-product-form',
+  selector: 'product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })

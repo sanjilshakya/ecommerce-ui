@@ -3,7 +3,7 @@ import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services';
 
 @Component({
-  selector: 'app-admin-products',
+  selector: 'admin-products',
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.scss']
 })

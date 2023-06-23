@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })

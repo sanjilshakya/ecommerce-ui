@@ -28,6 +28,8 @@ import * as interceptors from './interceptors';
     components.AdminOrdersComponent,
     components.ProductFormComponent,
     components.CategoriesComponent,
+    components.ProductFilterComponent,
+    components.ProductCardComponent,
   ],
   imports: [
     BrowserModule,
